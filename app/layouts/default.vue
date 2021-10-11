@@ -1,16 +1,18 @@
 <template>
-  <div>
-    <v-app-bar
-      flat
-    ></v-app-bar>
-    <Nuxt />
-  </div>
+  <v-app>
+    <v-main>
+      <v-container justify="center" align="center">
+        <v-app-bar color="blue" dense></v-app-bar>
+        <client-only>
+          <Nuxt />
+        </client-only>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style>

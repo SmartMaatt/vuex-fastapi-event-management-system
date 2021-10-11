@@ -5,5 +5,8 @@ export default {
   modules: [
       "@nuxtjs/axios"
   ],
-  components: true
+  components: true,
+  publicRuntimeConfig: {
+    middlewareUrl: 'http://localhost:8000'
+  }
 }
