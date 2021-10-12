@@ -24,6 +24,7 @@
     },
     computed: {
       users() {
+        console.log(this.$store.state.users.data)
         return this.$store.state.users.data
       }
     },
@@ -36,14 +37,16 @@
         this.$store.commit("user/storeName", user.name)
         this.$store.commit("user/storeEmail", user.email)
         this.$store.commit("user/storePassword", user.password)
+        console.log(user)
       },
       async deleteItem(id) {
-        await this.$axios.delete('http//localhost:8000/' + id)
+        await this.$axios.delete('http://localhost:8000/' + id)
+        .catch(({ response }) => {
+            alert("Error: " + response.data.detail)
+            console.error(response)
+        })
         this.$store.commit('users/storeData', (await this.$axios.get('http://localhost:8000')).data)
       }
     }
   }
 </script>
-<style scoped>
-
-</style>

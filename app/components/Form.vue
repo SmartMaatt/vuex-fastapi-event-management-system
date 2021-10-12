@@ -49,14 +49,17 @@
     methods: {
       async submitUser(user) {
         if(user.id) {
-          await this.$axios.put("http//localhost:8000/" + user.id, user)
+          await this.$axios.put("http://localhost:8000/" + user.id, user)
+          .catch(({ response }) => {
+            alert("Error: " + response.data.detail)
+            console.error(response)
+          })
         }
         else {
-          console.log(user)
-          // await this.$axios.post("http//localhost:8000/", user)
+          await this.$axios.post("http://localhost:8000/",user)
         }
         await this.resetForm({id: 0, name: "", email: "", password: ""})
-        await this.$store.commit("users/storeData", (await this.$axios.get("http//localhost:8000/")).data)
+        await this.$store.commit("users/storeData", (await this.$axios.get("http://localhost:8000/")).data)
       },
       resetForm(user) {
         this.$store.commit("user/storeId", user.id)

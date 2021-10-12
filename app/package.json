@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/vuetify": "^1.12.1",
-    "nuxt": "^2.15.8"
+    "nuxt": "^2.15.8",
+    "vue": "^2.6.14"
   }
 }
